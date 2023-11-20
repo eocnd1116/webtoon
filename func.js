@@ -15,7 +15,7 @@ function cookieGet(_key) {
 }
 function cookieSet(_key, _value) {
     var todayDate = new Date();
-    todayDate.setDate(todayDate.getDate() + 365);
+    todayDate.setDate(todayDate.getDate() + 1);
     document.cookie = _key + "=" + escape(_value) + "; path=/; expires=" + todayDate.toGMTString() + ";"
 }
 
