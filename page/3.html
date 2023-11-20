@@ -5,6 +5,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>테스트 HTML</title>
+  <script src="../func.js"></script>
+  <script>
+    document.write("<title>"+cookieGet("page")+"</title>");
+  </script>
   <style>
     body{
      -webkit-user-select: none;
@@ -17,6 +21,16 @@
 <body>
   <div style="text-align : center;">
     <img src="../img/gravity_3.png">
+    <script>
+      document.write("<button onclick=previous()>이전화</button>");
+      document.write("<button onclick=next()>다음화</button>");
+      function previous() {
+        cookieSet("page", cookieGet("page")-1)
+      }
+      function next() {
+        cookieSet("page", cookieGet("page")+1)
+      }
+    </script>
   </div>
 </body>
 </html>
