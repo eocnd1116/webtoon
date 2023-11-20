@@ -8,6 +8,26 @@
   <script>
     cookieReset("page", 3)
     document.write("<title>중력뭐시기 - "+cookieGet("page")+"화</title>");
+    function previous() {
+      if(Number(cookieGet("page"))-1<1) {
+        alert("이전화가 없읍니다.")
+      }
+      else {
+        window.scrollTo(0,0);
+        cookieSet("page", Number(cookieGet("page"))-1);
+        location.reload(true);
+      }
+    }
+    function next() {
+      if(Number(cookieGet("page"))+1>3) {
+        alert("다음화가 없읍니다.\n할거 없을때 그립니다!")
+      }
+      else {
+        window.scrollTo(0,0);
+        cookieSet("page", Number(cookieGet("page"))+1);
+        location.reload(true);
+      }
+    }
   </script>
   <style>
     body{
@@ -21,29 +41,11 @@
 <body>
   <div style="text-align : center;">
     <script>
+      document.write("<button onclick=previous()>이전화</button> ");
+      document.write(" <button onclick=next()>다음화</button>");
       document.write("<img src='../img/gravity_"+cookieGet("page")+".png'><br>");
-      document.write("<button onclick=previous()>이전화</button>");
-      document.write("<button onclick=next()>다음화</button>");
-      function previous() {
-        if(Number(cookieGet("page"))-1<1) {
-          alert("이전화가 없읍니다.")
-        }
-        else {
-          window.scrollTo(0,0);
-          cookieSet("page", Number(cookieGet("page"))-1);
-          location.reload(true);
-        }
-      }
-      function next() {
-        if(Number(cookieGet("page"))+1>3) {
-          alert("다음화가 없읍니다.\n할거 없을때 그립니다!")
-        }
-        else {
-          window.scrollTo(0,0);
-          cookieSet("page", Number(cookieGet("page"))+1);
-          location.reload(true);
-        }
-      }
+      document.write("<button onclick=previous()>이전화</button> ");
+      document.write(" <button onclick=next()>다음화</button>");
     </script>
   </div>
 </body>
