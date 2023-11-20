@@ -7,7 +7,7 @@
   <title>테스트 HTML</title>
   <script src="../func.js"></script>
   <script>
-    cookieReset("page", 3)
+    cookieReset("page", 1)
     document.write("<title>"+cookieGet("page")+"</title>");
   </script>
   <style>
@@ -21,15 +21,17 @@
 </head>
 <body>
   <div style="text-align : center;">
-    <img src="../img/gravity_3.png">
     <script>
+      document.write("<img src='../img/gravity_'+cookieGet("page")+'.png'>");
       document.write("<button onclick=previous()>이전화</button>");
       document.write("<button onclick=next()>다음화</button>");
       function previous() {
-        cookieSet("page", Number(cookieGet("page"))-1)
+        cookieSet("page", Number(cookieGet("page"))-1);
+        location.reload(true);
       }
       function next() {
-        cookieSet("page", Number(cookieGet("page"))+1)
+        cookieSet("page", Number(cookieGet("page"))+1);
+        location.reload(true);
       }
     </script>
   </div>
