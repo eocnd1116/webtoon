@@ -7,6 +7,7 @@
   <title>테스트 HTML</title>
   <script src="../func.js"></script>
   <script>
+    cookieReset("page", 3)
     document.write("<title>"+cookieGet("page")+"</title>");
   </script>
   <style>
@@ -25,10 +26,10 @@
       document.write("<button onclick=previous()>이전화</button>");
       document.write("<button onclick=next()>다음화</button>");
       function previous() {
-        cookieSet("page", cookieGet("page")-1)
+        cookieSet("page", Number(cookieGet("page"))-1)
       }
       function next() {
-        cookieSet("page", cookieGet("page")+1)
+        cookieSet("page", Number(cookieGet("page"))+1)
       }
     </script>
   </div>
