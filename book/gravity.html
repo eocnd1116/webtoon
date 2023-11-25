@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="../func.js"></script>
   <script>
-    cookieReset("page", 3)
+    cookieReset("page", 4)
     document.write("<title>중력뭐시기 - "+cookieGet("page")+"화</title>");
     function previous() {
       if(Number(cookieGet("page"))-1<1) {
@@ -19,7 +19,7 @@
       }
     }
     function next() {
-      if(Number(cookieGet("page"))+1>3) {
+      if(Number(cookieGet("page"))+1>4) {
         alert("다음화가 없읍니다.\n할거 없을때 그립니다!")
       }
       else {
