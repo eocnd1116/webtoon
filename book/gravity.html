@@ -7,9 +7,14 @@
   <script src="../func.js"></script>
   <script>
     cookieReset("page", 5)
-    document.write("<title>중력뭐시기 - "+cookieGet("page")+"화</title>");
+    if(Number(cookieGet("page"))==0) {
+      document.write("<title>중력뭐시기 - 프로토타입</title>");
+    }
+    else {
+      document.write("<title>중력뭐시기 - "+cookieGet("page")+"화</title>");
+    }
     function previous() {
-      if(Number(cookieGet("page"))-1<1) {
+      if(Number(cookieGet("page"))-1<0) {
         alert("이전화가 없읍니다.")
       }
       else {
