@@ -20,14 +20,17 @@
     cookieReset("pageShort", -1);
     if(Number(cookieGet("pageShort"))==-1) {
       document.write("<title>단편작</title>");
-      document.write("<br><h1>단편작 리스트에 오신걸 환영합니다!<\h1><br><h4>아직 그렇게 많진 않아요...<\h4><br><div style='text-align : center;'>");
+      document.write("<div style='text-align : center;'><br><h1>단편작 리스트에 오신걸 환영합니다!</h1><h4>아직 그렇게 많진 않아요...</h4><br>");
       for(let i=0;i<bookName.length;i++){
         document.write("<button onclick=previous()>"+bookName[i]+"</button>");
       }
-      document.write("<\div>");
+      document.write("</div>");
     }
     else {
       document.write("<title>단편작 - "+bookName[cookieGet("pageShort")]+"</title>");
+      document.write("<div style='text-align : center;'><button onclick=previous()>◀이전작</button><button onclick=list()>[목록]</button><button onclick=next()>다음작▶</button></div>");
+      document.write("<div style='text-align : center;'><img src='../img/short_"+cookieGet("pageShort")+".png'><br></div>");
+      document.write("<div style='text-align : center;'><button onclick=previous()>◀이전작</button><button onclick=list()>[목록]</button><button onclick=next()>다음작▶</button></div>");
     }
 
     
@@ -56,21 +59,4 @@
     }
   </script>
 </head>
-<body>
-  <div style="text-align : center;">
-    <button onclick=previous()>◀이전작</button>
-    <button onclick=list()>"["목록"]"</button>
-    <button onclick=next()>다음작▶</button>
-  </div>
-  <div style="text-align : center;">
-    <script>
-      document.write("<img src='../img/short_"+cookieGet("pageShort")+".png'><br>");
-    </script>
-  </div>
-  <div style="text-align : center;">
-    <button onclick=previous()>◀이전작</button>
-    <button onclick=list()>"["목록"]"</button>
-    <button onclick=next()>다음작▶</button>
-  </div>
-</body>
 </html>
