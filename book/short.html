@@ -22,7 +22,7 @@
       document.write("<title>단편작</title>");
       document.write("<div style='text-align : center;'><br><h1>단편작 리스트에 오신걸 환영합니다!</h1><h4>아직 그렇게 많진 않아요...</h4><br>");
       for(let i=0;i<bookName.length;i++){
-        document.write("<button onclick=previous()>"+bookName[i]+"</button>");
+        document.write("<button onclick=gtBook("+i+")>"+bookName[i]+"</button>");
       }
       document.write("</div>");
     }
@@ -55,8 +55,13 @@
       }
     }
     function gtback() {
-      window.scrollTo(0,0);
       cookieSet("pageShort", -1);
+      window.scrollTo(0,0);
+      location.reload(true);
+    }
+    function gtBook(let i) {
+      cookieSet("pageShort", i);
+      window.scrollTo(0,0);
       location.reload(true);
     }
   </script>
