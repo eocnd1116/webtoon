@@ -6,14 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="../func.js"></script>
   <script>
-    var bookName=['테스트'];
+    let bookName=["테스트"];
     cookieReset("pageShort", -1);
     if(Number(cookieGet("pageShort"))==-1) {
       document.write("<title>단편작</title>");
+      document.write("<div style='text-align : center;'>");
+      for(let i=0;i<bookName.length;i++){
+        document.write("<button onclick=previous()>"+bookName[i]+"</button>");
+      }
+      document.write("<\div>");
     }
     else {
-      document.write("<title>단편작 - "+bookName[cookieGet("pageShort")]+"화</title>");
+      document.write("<title>단편작 - "+bookName[cookieGet("pageShort")]+"</title>");
     }
+
+    
     function previous() {
       if(Number(cookieGet("pageShort"))-1<0) {
         alert("이전작이 없읍니다.")
@@ -25,7 +32,7 @@
       }
     }
     function next() {
-      if(Number(cookieGet("pageShort"))+1>10) {
+      if(Number(cookieGet("pageShort"))+1>bookName.length) {
         alert("다음작이 없읍니다.\n할거 없을때 그립니다!")
       }
       else {
