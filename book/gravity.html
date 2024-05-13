@@ -22,7 +22,7 @@
       document.write("<title>중력의 군주</title>");
       document.write("<div style='text-align : center;'><br><h1>'중력의 군주' 기록소에 오신걸 환영합니다!</h1><h4>더 연재할지 말지는 미지수...</h4><br>");
       for(let i=0;i<lastPage;i++){
-        document.write("<button onclick=gtBook("+i+")>"+bookName[i]+"화</button>");
+        document.write("<button onclick=gtBook("+i+")>"+i+"화</button>");
       }
       document.write("</div>");
     }
@@ -33,7 +33,7 @@
         document.write("<title>중력의 군주 - "+cookieGet("pageGravity")+"화</title>");
       }
       document.write("<div style='text-align : center;'><button onclick=previous()>◀이전작</button> <button onclick=gtback()>[목록]</button> <button onclick=next()>다음작▶</button></div>");
-      document.write("<div style='text-align : center;'><img src='../img/gravity_"+cookieGet("pageGravity")+".png' height=50% width=50%><br></div>");
+      document.write("<div style='text-align : center;'><img src='../img/gravity_"+cookieGet("pageGravity")+".png'><br></div>");
       document.write("<div style='text-align : center;'><button onclick=previous()>◀이전작</button> <button onclick=gtback()>[목록]</button> <button onclick=next()>다음작▶</button></div>");
     }
     
