@@ -1,1 +1,62 @@
-
+<!DOCTYPE html>
+<html lang="KO">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../func.js"></script>
+  <script>
+    var bookName=['테스트'];
+    cookieReset("pageShort", -1);
+    if(Number(cookieGet("pageShort"))==-1) {
+      document.write("<title>단편작</title>");
+    }
+    else {
+      document.write("<title>단편작 - "+bookName[cookieGet("pageShort")]+"화</title>");
+    }
+    function previous() {
+      if(Number(cookieGet("pageShort"))-1<0) {
+        alert("이전작이 없읍니다.")
+      }
+      else {
+        window.scrollTo(0,0);
+        cookieSet("pageShort", Number(cookieGet("pageShort"))-1);
+        location.reload(true);
+      }
+    }
+    function next() {
+      if(Number(cookieGet("pageShort"))+1>10) {
+        alert("다음작이 없읍니다.\n할거 없을때 그립니다!")
+      }
+      else {
+        window.scrollTo(0,0);
+        cookieSet("pageShort", Number(cookieGet("pageShort"))+1);
+        location.reload(true);
+      }
+    }
+  </script>
+  <style>
+    body{
+     -webkit-user-select: none;
+     -moz-user-select: none;
+     -ms-use-select: none;
+     user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <div style="text-align : center;">
+    <button onclick=previous()>이전작</button>
+    <button onclick=next()>다음작</button>
+  </div>
+  <div style="text-align : center;">
+    <script>
+      document.write("<img src='../img/short_"+cookieGet("pageShort")+".png'><br>");
+    </script>
+  </div>
+  <div style="text-align : center;">
+    <button onclick=previous()>이전작</button>
+    <button onclick=next()>다음작</button>
+  </div>
+</body>
+</html>
