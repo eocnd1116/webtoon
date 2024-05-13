@@ -28,9 +28,9 @@
     }
     else {
       document.write("<title>단편작 - "+bookName[cookieGet("pageShort")]+"</title>");
-      document.write("<div style='text-align : center;'><button onclick=previous()>◀이전작</button><button onclick=list()>[목록]</button><button onclick=next()>다음작▶</button></div>");
+      document.write("<div style='text-align : center;'><button onclick=previous()>◀이전작</button> <button onclick=gtback()>[목록]</button> <button onclick=next()>다음작▶</button></div>");
       document.write("<div style='text-align : center;'><img src='../img/short_"+cookieGet("pageShort")+".png'><br></div>");
-      document.write("<div style='text-align : center;'><button onclick=previous()>◀이전작</button><button onclick=list()>[목록]</button><button onclick=next()>다음작▶</button></div>");
+      document.write("<div style='text-align : center;'><button onclick=previous()>◀이전작</button> <button onclick=gtback()>[목록]</button> <button onclick=next()>다음작▶</button></div>");
     }
 
     
@@ -45,7 +45,7 @@
       }
     }
     function next() {
-      if(Number(cookieGet("pageShort"))+1>bookName.length) {
+      if(Number(cookieGet("pageShort"))+2>bookName.length) {
         alert("다음작이 없읍니다.\n할거 없을때 그립니다!")
       }
       else {
@@ -54,8 +54,10 @@
         location.reload(true);
       }
     }
-    function list() {
+    function gtback() {
+      window.scrollTo(0,0);
       cookieSet("pageShort", -1);
+      location.reload(true);
     }
   </script>
 </head>
