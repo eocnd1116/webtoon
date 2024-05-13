@@ -5,12 +5,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="../func.js"></script>
+  
+  <style>
+    head{
+     -webkit-user-select: none;
+     -moz-user-select: none;
+     -ms-use-select: none;
+     user-select: none;
+    }
+  </style>
+  
   <script>
     let bookName=["테스트"];
     cookieReset("pageShort", -1);
     if(Number(cookieGet("pageShort"))==-1) {
       document.write("<title>단편작</title>");
-      document.write("<div style='text-align : center;'>");
+      document.write("<br><h1>단편작 리스트에 오신걸 환영합니다!<\h1><br><h4>아직 그렇게 많진 않아요...<\h4><br><div style='text-align : center;'>");
       for(let i=0;i<bookName.length;i++){
         document.write("<button onclick=previous()>"+bookName[i]+"</button>");
       }
@@ -41,20 +51,16 @@
         location.reload(true);
       }
     }
-  </script>
-  <style>
-    body{
-     -webkit-user-select: none;
-     -moz-user-select: none;
-     -ms-use-select: none;
-     user-select: none;
+    function list() {
+      cookieSet("pageShort", -1);
     }
-  </style>
+  </script>
 </head>
 <body>
   <div style="text-align : center;">
-    <button onclick=previous()>이전작</button>
-    <button onclick=next()>다음작</button>
+    <button onclick=previous()>◀이전작</button>
+    <button onclick=list()>"["목록"]"</button>
+    <button onclick=next()>다음작▶</button>
   </div>
   <div style="text-align : center;">
     <script>
@@ -62,8 +68,9 @@
     </script>
   </div>
   <div style="text-align : center;">
-    <button onclick=previous()>이전작</button>
-    <button onclick=next()>다음작</button>
+    <button onclick=previous()>◀이전작</button>
+    <button onclick=list()>"["목록"]"</button>
+    <button onclick=next()>다음작▶</button>
   </div>
 </body>
 </html>
