@@ -5,14 +5,38 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="../func.js"></script>
+
+  <style>
+    head{
+     -webkit-user-select: none;
+     -moz-user-select: none;
+     -ms-use-select: none;
+     user-select: none;
+    }
+  </style>
+  
   <script>
-    cookieReset("pageGravity", 10)
-    if(Number(cookieGet("pageGravity"))==0) {
-      document.write("<title>중력뭐시기 - 프로토타입</title>");
+    const lastPage=10;
+    cookieReset("pageGravity", -1)
+    if (Number(cookieGet("pageGravity"))==-1) {
+      document.write("<title>중력의 군주</title>");
+      document.write("<div style='text-align : center;'><br><h1>'중력의 군주' 기록소에 오신걸 환영합니다!</h1><h4>더 연재할지 말지는 미지수...</h4><br>");
+      for(let i=0;i<lastPage;i++){
+        document.write("<button onclick=gtBook("+i+")>"+bookName[i]+"화</button>");
+      }
+      document.write("</div>");
     }
     else {
-      document.write("<title>중력뭐시기 - "+cookieGet("pageGravity")+"화</title>");
+      if (Number(cookieGet("pageGravity"))==0) {
+        document.write("<title>중력의 군주 - 프로토타입</title>");
+      } else {
+        document.write("<title>중력의 군주 - "+cookieGet("pageGravity")+"화</title>");
+      }
+      document.write("<div style='text-align : center;'><button onclick=previous()>◀이전작</button> <button onclick=gtback()>[목록]</button> <button onclick=next()>다음작▶</button></div>");
+      document.write("<div style='text-align : center;'><img src='../img/short_"+cookieGet("pageShort")+".png' height=50% width=50%><br></div>");
+      document.write("<div style='text-align : center;'><button onclick=previous()>◀이전작</button> <button onclick=gtback()>[목록]</button> <button onclick=next()>다음작▶</button></div>");
     }
+    
     function previous() {
       if(Number(cookieGet("pageGravity"))-1<0) {
         alert("이전화가 없읍니다.")
@@ -24,7 +48,7 @@
       }
     }
     function next() {
-      if(Number(cookieGet("pageGravity"))+1>10) {
+      if(Number(cookieGet("pageGravity"))+1>lastPage) {
         alert("다음화가 없읍니다.\n할거 없을때 그립니다!")
       }
       else {
@@ -33,29 +57,17 @@
         location.reload(true);
       }
     }
-  </script>
-  <style>
-    body{
-     -webkit-user-select: none;
-     -moz-user-select: none;
-     -ms-use-select: none;
-     user-select: none;
+    function gtback() {
+      cookieSet("pageGravity", -1);
+      window.scrollTo(0,0);
+      location.reload(true);
     }
-  </style>
+    function gtBook(i) {
+      cookieSet("pageGravity", i);
+      window.scrollTo(0,0);
+      location.reload(true);
+    }
+  </script>
+  
 </head>
-<body>
-  <div style="text-align : center;">
-    <button onclick=previous()>이전화</button>
-    <button onclick=next()>다음화</button>
-  </div>
-  <div style="text-align : center;">
-    <script>
-      document.write("<img src='../img/gravity_"+cookieGet("pageGravity")+".png'><br>");
-    </script>
-  </div>
-  <div style="text-align : center;">
-    <button onclick=previous()>이전화</button>
-    <button onclick=next()>다음화</button>
-  </div>
-</body>
 </html>
