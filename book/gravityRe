@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="KO">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../func.js"></script>
+
+  <style>
+    head{
+     -webkit-user-select: none;
+     -moz-user-select: none;
+     -ms-use-select: none;
+     user-select: none;
+    }
+  </style>
+  
+  <script>
+    const lastPage=0;
+    cookieReset("pageGravityRe", -1)
+    if (Number(cookieGet("pageGravityRe"))==-1) {
+      document.write("<title>중력의 군주</title>");
+      document.write("<div style='text-align : center;'><br><h1>'중력의 군주<h5>(다시그림)</h5>' 기록소에 오신걸 환영합니다!</h1><h4>그리면서 원하는 전개가 안 나와서 다시 그립니다요...</h4><br>");
+      for(let i=0;i<lastPage+1;i++){
+        document.write(" <button onclick=gtBook("+i+")>"+i+"화</button> ");
+      }
+      document.write("</div>");
+    }
+    else {
+      if (Number(cookieGet("pageGravityRe"))==0) {
+        document.write("<title>중력의 군주 - 프로토타입</title>");
+      } else {
+        document.write("<title>중력의 군주 - "+cookieGet("pageGravityRe")+"화</title>");
+      }
+      document.write("<div style='text-align : center;'><button onclick=previous()>◀이전작</button> <button onclick=gtback()>[목록]</button> <button onclick=next()>다음작▶</button></div>");
+      document.write("<div style='text-align : center;'><img src='../img/gravityRe_"+cookieGet("pageGravityRe")+".png'><br></div>");
+      document.write("<div style='text-align : center;'><button onclick=previous()>◀이전작</button> <button onclick=gtback()>[목록]</button> <button onclick=next()>다음작▶</button></div>");
+    }
+    
+    function previous() {
+      if(Number(cookieGet("pageGravityRe"))-1<0) {
+        alert("이전화가 없읍니다.")
+      }
+      else {
+        window.scrollTo(0,0);
+        cookieSet("pageGravityRe", Number(cookieGet("pageGravityRe"))-1);
+        location.reload(true);
+      }
+    }
+    function next() {
+      if(Number(cookieGet("pageGravityRe"))+1>lastPage) {
+        alert("다음화가 없읍니다.\n할거 없을때 그립니다!")
+      }
+      else {
+        window.scrollTo(0,0);
+        cookieSet("pageGravityRe", Number(cookieGet("pageGravityRe"))+1);
+        location.reload(true);
+      }
+    }
+    function gtback() {
+      cookieSet("pageGravityRe", -1);
+      window.scrollTo(0,0);
+      location.reload(true);
+    }
+    function gtBook(i) {
+      cookieSet("pageGravityRe", i);
+      window.scrollTo(0,0);
+      location.reload(true);
+    }
+  </script>
+  
+</head>
+</html>
