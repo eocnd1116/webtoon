@@ -13,9 +13,6 @@
      -ms-use-select: none;
      user-select: none;
     }
-    h1{
-      margin: 0px; 
-    }
   </style>
   
   <script>
@@ -23,7 +20,7 @@
     cookieReset("pageGravityRe", -1)
     if (Number(cookieGet("pageGravityRe"))==-1) {
       document.write("<title>중력의 군주</title>");
-      document.write("<div style='text-align : center;'><br><h1>'중력의 군주<h5>(다시그림)</h5>' 기록소에 오신걸 환영합니다!</h1><h4>그리면서 원하는 전개가 안 나와서 다시 그립니다요...</h4><br>");
+      document.write("<div style='text-align : center;'><br><h1>'중력의 군주(다시그림)' 기록소에 오신걸 환영합니다!</h1><h4>그리면서 원하는 전개가 안 나와서 다시 그립니다요...</h4><br>");
       for(let i=0;i<lastPage+1;i++){
         document.write(" <button onclick=gtBook("+i+")>"+i+"화</button> ");
       }
